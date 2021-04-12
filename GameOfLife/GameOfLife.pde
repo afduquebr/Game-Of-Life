@@ -1,3 +1,9 @@
+/* Implementacion del juego de la vida de Conway
+   Autor: Andres Felipe Duque Bran
+   Ultima actualizacion: 11-04-21
+*/
+
+
 int[][] time = new int [100][70];
 float rate = 5;
 

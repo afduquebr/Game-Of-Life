@@ -198,6 +198,7 @@ int[][] neighbours(int[][] x) {
 
 // Funcion que origina los patrones predeterminados
 int[][] standard_init() {
+  key = ENTER;
   int[][] init = new int [100][70];
   
   // Planeador de Gosper

@@ -27,8 +27,8 @@ int[][] random_init() {
 
 //Funcion que recibe la informacion del mouse
 void mousePressed() {
-  key = ' ';
   if(mousePressed == true) {
+    key = ' ';
     if(time[mouseX/10][mouseY/10]==0) {
       time[mouseX/10][mouseY/10] = 1;
     } 
@@ -44,7 +44,6 @@ void keyPressed() {
     draw_square(time);
   } 
   else {
-    
     draw_square(time);
     time = dead_or_alive(neighbours(time),time);
   }

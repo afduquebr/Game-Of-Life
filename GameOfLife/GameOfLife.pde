@@ -9,15 +9,12 @@ void draw() {
   smooth();
   frameRate(rate);
   background(0);
-  draw_square(time);
-  time = dead_or_alive(neighbours(time),time);
+  //grid();
+  keyPressed();
+  mousePressed();
 }
 
-// Funcion que da condiciones iniciales
-int[][] init() {
-  return standard_init();
-}
-
+//Funcion que inicializa de forma aleatoria el juego
 int[][] random_init() {
   int[][] init = new int [100][70];
   for(int i=0; i<100; i++) {
@@ -28,29 +25,38 @@ int[][] random_init() {
   return init;
 }
 
-int[][] manual_init() {
-  int[][] x = new int [100][70];
-  return x;
+//Funcion que recibe la informacion del mouse
+void mousePressed() {
+  key = ' ';
+  if(mousePressed == true) {
+    if(time[mouseX/10][mouseY/10]==0) {
+      time[mouseX/10][mouseY/10] = 1;
+    } 
+    else if(time[mouseX/10][mouseY/10]==1) {
+      time[mouseX/10][mouseY/10] = 0;
+    } 
+  }
 }
 
-
+//Funcion que recibe la informacion del teclado
 void keyPressed() {
   if (key == ' ') {
-    noLoop();
-  } else if (key == ENTER) {
-    loop();
-  } else if (key == 8) {
-    time = init();
+    draw_square(time);
   } 
-  else if (key == '1') {
+  else {
+    
+    draw_square(time);
+    time = dead_or_alive(neighbours(time),time);
+  }
+  if (key == '1') {
      time = random_init();
    }
    else if (key == '2') {
-     time = manual_init();
-   }
-   else if (key == '3') {
      time = standard_init();
    }
+   else if (key == 8) {
+     time = new int [100][70];
+  } 
   else if (key == CODED) {
     if (keyCode == UP) {
       if (rate >= 10.0) {
@@ -71,6 +77,7 @@ void keyPressed() {
   }
 }
 
+//Funcion que asigna un valor a la velocidad del Loop
 void frame_speed(int x) {
   frameRate(x);
 }
@@ -91,6 +98,29 @@ int[][] dead_or_alive(int[][] count, int[][] x) {
     }
   }
   return doa;
+}
+
+//Funcion que dibuja el cuadrado de 10 pixeles
+void draw_square(int[][] x) {
+  for(int i=0; i<100; i++) {
+    for(int j=0; j<70; j++) {
+      if(x[i][j]==1) {
+        square(i*10,j*10,10);
+      }
+    }
+  }
+}
+
+//Funcion que dibuja la cuadricula
+void grid() {
+  for (int i=1; i<100; i++) {
+    stroke(245,255,250);
+    line(i*10,0,i*10,700);
+  }
+  for (int j=1; j<70; j++) {
+    stroke(245,255,250);
+    line(0,j*10,1000,j*10);
+  }
 }
 
 //Funcion que cuenta el numero de vecinos vivos (x = Estado)
@@ -167,6 +197,7 @@ int[][] neighbours(int[][] x) {
   return count;
 }
 
+// Funcion que origina los patrones predeterminados
 int[][] standard_init() {
   int[][] init = new int [100][70];
   
@@ -378,15 +409,4 @@ int[][] standard_init() {
   init[87][55] = 1;
   
   return init;
-}
-
-//Funcion que dibuja el cuadrado de 10 pixeles
-void draw_square(int[][] x) {
-  for(int i=0; i<100; i++) {
-    for(int j=0; j<70; j++) {
-      if(x[i][j]==1) {
-        square(i*10,j*10,10);
-      }
-    }
-  }
 }

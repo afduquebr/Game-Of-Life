@@ -87,7 +87,7 @@ void frame_speed(int x) {
   frameRate(x);
 }
 
-//Funcion que determina si vive o muere (x = Estadp)
+//Funcion que determina si vive o muere (x = Estado)
 int[][] dead_or_alive(int[][] count, int[][] x) {
   int[][] doa = new int [100][70];
   for(int i=0; i<100; i++){

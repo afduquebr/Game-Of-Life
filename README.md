@@ -3,18 +3,18 @@ Autor: Andrés Felipe Duque Bran
 
 ***
 ## Descripción
-Es un juego el cual no requiere interacción durante su evolución, sino únicamente para definir su estado inicial. Este consta de una cuadrícula con un autómata 
+Es un juego el cual no requiere interacción durante su evolución, únicamente para definir su estado inicial. Este consta de una cuadrícula con un autómata 
 por cada una de ellas, las cuales pueden encontrarse en dos estados posibles, vivas o muertas. Esto dependerá especificamente del estado en que se encuentren 
 sus vecinos, y viene dado de la forma:
 
   * Un autómata vivo con 2 o 3 vecinos vivos continúa viviendo, de lo contrario muere.
   * Un autómata muerto con 3 vecinos vivos revive, de lo contrario continúa muerto.
   
-A partir de este conjunto de reglas, y evolución es posible construir un grupo de patrones cuya evolución durante el juego resulta de interés. Estos son:
+A partir de este conjunto de reglas y evolución, es posible construir un grupo de patrones cuya evolución durante el juego resulta de interés. Estos son:
 
   * Naves Espaciales: Es un tipo de patrón que luego de un número exacto de pasos en la evolución reaparece en una posición diferente. 
   * Osciladores: Es un tipo de patrón que luego de un número exacto de pasos en la evolución reaparece en una la misma posición. 
-  * Vidas Estáticas: Son patrones que se mantienen inmóviles ante cada paso de la evolución, es decir su forma no cambia desde su estado inicial.
+  * Vidas Estáticas: Son patrones que se mantienen inmóviles ante cada paso de la evolución, es decir, su forma no cambia desde su estado inicial.
   * Matusalenes: Son patrones que toman un número gande de iteraciones de la evolución para lograr su estabilización. Dependiendo del tipo, este número puede 
   variar en un rango mayor a 100 pasos.
   
